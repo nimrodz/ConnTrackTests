@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-gcc /root/nimrodz/test-conntrack.c -o test1
+gcc /root/nimrodz/ConnTrackTests/test-conntrack.c -o test1
 #
 # XXX: module auto-load not support by nfnetlink_cttimeout yet :-(
 #
@@ -19,7 +19,7 @@ modprobe nf_conntrack_proto_sctp || true
 modprobe nf_conntrack_proto_dccp || true
 modprobe nf_conntrack_proto_gre || true
 pwd
-cd /root/nimrodz/
+cd /root/nimrodz/ConnTrackTests
 ./test1 testcases
 
 
