@@ -3,6 +3,22 @@ echo ------------------
 echo $1/test-conntrack.c
 echo ------------------
 
+script_name=$(basename $0)
+script_dir=$(cd $(dirname $0) && pwd)
+
+
+function usage()
+{
+        cat <<EOF
+Usage: $script_name [TEST_DIR]  
+
+EOF
+   exit 1
+}
+#check 1 parameter exists
+test $# -ne 1 && usage
+
+
 rm -f $1/test1
 if [ $UID -ne 0 ]
 then
